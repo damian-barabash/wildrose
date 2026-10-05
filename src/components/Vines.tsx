@@ -60,6 +60,7 @@ export function Vines() {
       const xR = W - xL
       const sway = W < 700 ? 2.5 : 7
       const fs = Math.max(17, Math.min(36, W * 0.03))
+      const bend = W < 700 ? 20 : 46
 
       const gaps = [...main!.querySelectorAll<HTMLElement>(':scope > .sec')]
         .map((s) => ({ y: s.offsetTop + parseFloat(getComputedStyle(s).paddingTop) / 2, h: parseFloat(getComputedStyle(s).paddingTop) }))
@@ -81,7 +82,7 @@ export function Vines() {
         side = -side
         const to = edge()
         const dir = Math.sign(to - from)
-        pts.push([from, g.y - reach], [from + dir * 46, g.y - 9], [W / 2, g.y], [to - dir * 46, g.y + 9], [to, g.y + reach])
+        pts.push([from, g.y - reach], [from + dir * bend, g.y - 9], [W / 2, g.y], [to - dir * bend, g.y + 9], [to, g.y + reach])
         y = g.y + reach + 110
       }
       down(H - 60)

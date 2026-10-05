@@ -365,6 +365,84 @@ html.is-locked { overflow: hidden; }
   .docs small { text-align: left; }
 }
 
+/* ---------- telefon: więcej powietrza, mniej tekstu na jednym ekranie ---------- */
+@media (max-width: 640px) {
+  :root { --sec: 136px; --pad: 22px; --gap: 14px; }
+  body { line-height: 1.62; }
+  .h1, .h2, .h3, .statement, .hero__h { letter-spacing: -0.022em; word-spacing: 0.06em; line-height: 1.07; }
+  .h1 { font-size: 2.25rem; }
+  .h2 { font-size: 1.7rem; }
+  .lead { font-size: 1.08rem; line-height: 1.55; }
+  .sec.sec--tight { padding-top: 64px; }
+  .sec__head { gap: 18px; margin-bottom: 44px; }
+  .sec__head--line { padding-top: 28px; }
+  .sec__cta { margin-top: 40px; }
+  .sec__cta .pill { max-width: 100%; white-space: normal; line-height: 1.25; text-align: center; }
+  .phead { padding-top: 72px; gap: 26px; }
+
+  .hero { padding-top: 20px; }
+  .hero__urgent { gap: 8px 28px; font-size: 0.9rem; }
+  .hero__logo { margin-top: 76px; }
+  .hero__h { margin-top: 40px; font-size: 1.32rem; }
+  .hero__sub { margin-top: 20px; }
+  .hero__tiles { margin-top: 76px; gap: 18px; }
+  .msg { min-height: 440px; padding: 36px 24px; gap: 26px; }
+  .msg__body { gap: 24px; }
+
+  /* telefony: sam numer i nazwa, bez opisu */
+  .tel { padding: 30px 0; gap: 10px 16px; }
+  .tel__num { font-size: 2.5rem; }
+  .tel__txt { max-width: none; font-size: 0; gap: 0; }
+  .tel__txt b { font-size: 0.8rem; line-height: 1.4; }
+  .tel:hover { padding-inline: 0; background: none; }
+
+  .statement { font-size: 2rem; margin-top: 26px; }
+  .sec__note--c { margin-top: 34px; }
+  .trio { margin-top: 64px; gap: 18px; }
+
+  /* programy: zdjęcie, nazwa i jedno zdanie */
+  .progs { gap: 0; }
+  .prog { gap: 20px; padding: 0 0 64px; }
+  .prog:last-child { padding-bottom: 0; }
+  .prog .img { aspect-ratio: 3 / 2; }
+  .prog__txt { gap: 14px; }
+  .prog__txt .lbl, .prog__txt .rnd { display: none; }
+  .prog__txt .h3 { font-size: 1.35rem; }
+
+  .steps { gap: 18px; }
+  .steps li { padding: 30px 26px 34px; gap: 14px; }
+  .steps__n { margin-bottom: 34px; }
+  .open { gap: 56px; }
+  .open__txt { gap: 24px; }
+  .bars { gap: 30px; }
+  .cta { gap: 28px; padding: 72px 26px; }
+  .ways { gap: 18px; }
+  .ways li { padding: 30px 26px 34px; gap: 14px; }
+
+  .safe { padding: 36px 24px; gap: 36px; }
+  .safe__list { gap: 24px; }
+  .safe__list li { padding-top: 24px; }
+  .split { gap: 44px; }
+  .split__side { gap: 22px; }
+  .form, .fres { gap: 30px; padding: 30px 22px 34px; }
+  .fld { gap: 10px; }
+  .faq summary { padding: 28px 0; }
+  .faq details > p, .faq details > ul { padding-bottom: 32px; }
+  .docs li { padding: 26px 0; }
+  .facts--grid > div { padding: 8px 0 24px; }
+
+  .ft__in { gap: 56px; padding-top: 72px; }
+  .ft__col { gap: 20px; }
+  .ft__tel { gap: 18px; }
+  .ft__nav { gap: 20px; }
+  .ft__big { margin-top: 72px; }
+
+  .sos__card { gap: 22px; padding: 30px 22px; }
+  .sos__acts { gap: 12px; }
+  .sos__lead { font-size: 0.95rem; }
+  .sos__foot { padding-top: 10px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .js [data-rv] { opacity: 1; transform: none; transition: none; }
   .page, .msg__body, .sos, .sos__card { animation: none; }
