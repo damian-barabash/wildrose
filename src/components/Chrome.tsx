@@ -33,7 +33,8 @@ export function useEscExit() {
     let last = 0
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return
-      if (document.documentElement.classList.contains('menu-open')) return
+      const cl = document.documentElement.classList
+      if (cl.contains('menu-open')) return
       const now = Date.now()
       if (now - last < 1000) quickExit()
       last = now

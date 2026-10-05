@@ -11,7 +11,9 @@ for (const [vw, vh, tag, scale] of [[1440, 900, 'd', 0.5], [390, 844, 'm', 1]]) 
     p.on('console', (m) => m.type() === 'error' && errs.push(m.text()))
     p.on('pageerror', (e) => errs.push(String(e)))
     await p.setViewport({ width: vw, height: vh, deviceScaleFactor: scale, isMobile: tag === 'm', hasTouch: tag === 'm' })
-    await p.goto('http://localhost:4317' + url, { waitUntil: 'networkidle0' })
+    await p.goto((process.env.SITE || 'http://localhost:4317') + url, { waitUntil: 'networkidle0' })
+    if (process.env.SOS) { await p.screenshot({ path: `${out}/${name}-${tag}-sos.jpg`, type: 'jpeg', quality: 80 }) }
+    await p.evaluate(() => document.querySelector('.sos__enter')?.click())
     await p.evaluate(async () => {
       await document.fonts.ready
       const h = document.documentElement.scrollHeight

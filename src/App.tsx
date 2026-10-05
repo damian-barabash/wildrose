@@ -3,6 +3,8 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { DraftBar, MobileBar, useEscExit } from './components/Chrome'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { Sos } from './components/Sos'
+import { Vines } from './components/Vines'
 import { scrollToId, scrollToTop, useReveal, useSmoothScroll } from './lib/motion'
 import { About } from './pages/About'
 import { Help } from './pages/Help'
@@ -28,6 +30,7 @@ export function App() {
       <DraftBar />
       <Header />
       <main id="tresc" key={pathname} className="page">
+        <Vines />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pomoc" element={<Help />} />
@@ -39,6 +42,7 @@ export function App() {
       </main>
       <Footer />
       <MobileBar />
+      <Sos />
     </>
   )
 }

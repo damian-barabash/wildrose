@@ -10,11 +10,19 @@ export function useSmoothScroll() {
   useEffect(() => {
     if (reduced()) return
     lenis = new Lenis({ lerp: 0.11, autoRaf: true, anchors: { offset: -88 } })
+    if (document.documentElement.classList.contains('is-locked')) lenis.stop()
     return () => {
       lenis?.destroy()
       lenis = null
     }
   }, [])
+}
+
+// Zatrzymuje przewijanie strony pod otwartym oknem.
+export function lockScroll(on: boolean) {
+  document.documentElement.classList.toggle('is-locked', on)
+  if (on) lenis?.stop()
+  else lenis?.start()
 }
 
 export function scrollToTop() {

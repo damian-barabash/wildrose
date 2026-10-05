@@ -19,6 +19,9 @@ export const site = {
   exitUrl: 'https://www.google.pl/search?q=pogoda',
 }
 
+// Zdania, które padają w domach z przemocą. W tle strony przebija je łodyga róży (components/Vines.tsx).
+export const abuseLines = ['To twoja wina', 'Nikt ci nie uwierzy', 'Bez mnie jesteś nikim', 'Nikomu o tym nie mów', 'Przesadzasz', 'Nigdzie nie pójdziesz', 'To się więcej nie powtórzy']
+
 export const nav = [
   { to: '/pomoc', label: 'Szukam pomocy' },
   { to: '/o-fundacji', label: 'O fundacji' },
