@@ -1,6 +1,5 @@
 import { Hotlines, Img, PageHead } from '../components/Bits'
 import { HelpForm } from '../components/Forms'
-import { openSos } from '../components/Sos'
 import { faq } from '../content/site'
 
 export function Help() {
@@ -14,11 +13,6 @@ export function Help() {
           <p className="sec__note" data-rv>Jeśli coś zagraża Tobie lub dzieciom w tej chwili, dzwoń pod 112.</p>
         </div>
         <Hotlines />
-        <div className="sec__cta" data-rv>
-          <button type="button" className="pill pill--line" onClick={openSos}>
-            <span>Nie mogę rozmawiać — wyślij cichy sygnał</span>
-          </button>
-        </div>
       </section>
 
       <section className="wrap sec">
@@ -28,7 +22,6 @@ export function Help() {
             <h2 className="h2">Ktoś może sprawdzać Twój telefon lub komputer?</h2>
           </div>
           <ul className="safe__list">
-            <li><b>Szybkie wyjście.</b> Przycisk u góry strony od razu ją zamyka i otwiera prognozę pogody. Działa też dwukrotne naciśnięcie klawisza Esc.</li>
             <li><b>Tryb prywatny.</b> Otwieraj tę stronę w oknie incognito — nie zapisze się w historii.</li>
             <li><b>Historia.</b> Po wizycie usuń stronę z historii przeglądarki i z listy otwartych kart.</li>
             <li><b>Bezpieczny kontakt.</b> Podaj numer lub e-mail, do którego nikt poza Tobą nie ma dostępu.</li>

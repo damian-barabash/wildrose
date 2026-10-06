@@ -1,11 +1,11 @@
 // Wysyłka formularzy. Backend (Supabase) podłączymy później: wystarczy ustawić
-// VITE_SUPABASE_URL i VITE_SUPABASE_ANON_KEY oraz założyć tabele `help_requests` i `partner_requests`
+// VITE_SUPABASE_URL i VITE_SUPABASE_ANON_KEY oraz założyć tabele `help_requests`, `partner_requests` i `newsletter_subscribers`
 // z polityką „tylko insert” dla roli anon. Bez tych zmiennych formularz działa w trybie testowym
 // i NIC nie wysyła — strona mówi o tym użytkownikowi wprost.
 const URL = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 
-export type FormKind = 'help_requests' | 'partner_requests'
+export type FormKind = 'help_requests' | 'partner_requests' | 'newsletter_subscribers'
 export type SubmitResult = { ok: true; demo: boolean } | { ok: false }
 
 export const formsLive = Boolean(URL && KEY)

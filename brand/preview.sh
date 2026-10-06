@@ -1,7 +1,7 @@
 #!/bin/sh
 # podgląd slajdów do kontroli: brand/preview.sh <katalog>
 out=${1:-/tmp/wr-deck}; rm -rf "$out"; mkdir -p "$out"
-pdftoppm -r 60 -png "$(dirname "$0")/Wild-Rose-Logo-Propozycje.pdf" "$out/s" 2>/dev/null
+pdftoppm -r 60 -png "$(dirname "$0")/Wild-Roses-Logo-Propozycje.pdf" "$out/s" 2>/dev/null
 node -e '
 const sharp=require("'"$(cd "$(dirname "$0")/.." && pwd)"'/node_modules/sharp");const fs=require("fs");const d=process.argv[1];
 (async()=>{const f=fs.readdirSync(d).filter(x=>x.startsWith("s-")).sort();

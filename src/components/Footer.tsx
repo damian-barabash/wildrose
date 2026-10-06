@@ -1,12 +1,24 @@
-import { Link } from 'react-router-dom'
-import { hotlines, nav, site, telHref } from '../content/site'
+import { Link, useLocation } from 'react-router-dom'
+import { hotlines, nav, newsletter, site, telHref } from '../content/site'
 import { Logo } from './Logo'
+import { NewsletterForm } from './Newsletter'
 
 const todo = 'do uzupełnienia'
 
 export function Footer() {
+  // na stronie „Kontakt” formularz zapisu jest tuż nad stopką — nie powtarzamy go
+  const { pathname } = useLocation()
   return (
     <footer className="ft">
+      {pathname !== '/kontakt' && (
+        <div className="wrap ft__nl">
+          <div className="ft__col">
+            <h2 className="h2">{newsletter.title}</h2>
+            <p>{newsletter.text}</p>
+          </div>
+          <NewsletterForm source="stopka" onTint />
+        </div>
+      )}
       <div className="wrap ft__in">
         <div className="ft__col">
           <h2 className="lbl">Pomoc od razu</h2>

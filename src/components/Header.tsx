@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { nav } from '../content/site'
-import { quickExit } from '../lib/exit'
-import { Arrow, Close } from './Icons'
+import { Arrow } from './Icons'
 import { Logo } from './Logo'
 
 export function Header() {
@@ -21,7 +20,7 @@ export function Header() {
   return (
     <header className="hd">
       <div className="wrap hd__in">
-        <Link to="/" className="hd__logo" aria-label="Wild Rose — strona główna">
+        <Link to="/" className="hd__logo" aria-label="Wild Roses — strona główna">
           <Logo />
         </Link>
         <nav className={`hd__nav ${open ? 'is-open' : ''}`} id="menu" aria-label="Główna nawigacja">
@@ -36,11 +35,6 @@ export function Header() {
             <span>Potrzebuję pomocy</span>
             <i><Arrow dir="up-right" /></i>
           </Link>
-          <button type="button" className="pill pill--line hd__exit" onClick={quickExit} title="Natychmiast zamyka tę stronę i otwiera prognozę pogody">
-            <span className="hd__exit-long">Szybkie wyjście</span>
-            <span className="hd__exit-short">Wyjście</span>
-            <i><Close /></i>
-          </button>
           <button type="button" className="hd__burger" aria-expanded={open} aria-controls="menu" onClick={() => setOpen((o) => !o)}>
             <span className="sr">{open ? 'Zamknij menu' : 'Otwórz menu'}</span>
             <i aria-hidden="true" />

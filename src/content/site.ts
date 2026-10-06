@@ -4,8 +4,8 @@
 export const DRAFT = true
 
 export const site = {
-  name: 'Wild Rose',
-  legalName: 'Fundacja Wild Rose',
+  name: 'Wild Roses',
+  legalName: 'Fundacja Wild Roses',
   tagline: 'Pomagamy wyjść z przemocy i wrócić do samodzielnego życia.',
   // dane fundacji — do uzupełnienia
   email: '',
@@ -15,8 +15,14 @@ export const site = {
   nip: '',
   regon: '',
   account: '',
-  // strona, na którą przenosi „Szybkie wyjście”
-  exitUrl: 'https://www.google.pl/search?q=pogoda',
+}
+
+// Zapis na newsletter: okno po 10 s od wejścia, strona „Kontakt” i stopka.
+export const newsletter = {
+  title: 'Bądź na bieżąco',
+  text: 'Raz w miesiącu piszemy, co udało się zrobić i jak można pomóc. Bez spamu — wypisać się można jednym kliknięciem.',
+  consent: 'Zgadzam się na otrzymywanie newslettera Fundacji Wild Roses na podany adres e-mail.',
+  delay: 10_000,
 }
 
 // Zdania, które padają w domach z przemocą. W tle strony przebija je łodyga róży (components/Vines.tsx).
@@ -27,6 +33,7 @@ export const nav = [
   { to: '/o-fundacji', label: 'O fundacji' },
   { to: '/przejrzystosc', label: 'Przejrzystość' },
   { to: '/wspolpraca', label: 'Wesprzyj nas' },
+  { to: '/kontakt', label: 'Kontakt' },
 ]
 
 // Ogólnopolskie, publiczne numery pomocowe (stan na 10.2026 — sprawdzić przed publikacją).

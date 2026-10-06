@@ -1,7 +1,5 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { DRAFT, mainHotline, telHref } from '../content/site'
-import { quickExit } from '../lib/exit'
 import { Phone } from './Icons'
 
 export function DraftBar() {
@@ -25,21 +23,4 @@ export function MobileBar() {
       </Link>
     </div>
   )
-}
-
-// Dwa razy Esc w ciągu sekundy = szybkie wyjście (opisane na stronie „Szukam pomocy”).
-export function useEscExit() {
-  useEffect(() => {
-    let last = 0
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return
-      const cl = document.documentElement.classList
-      if (cl.contains('menu-open')) return
-      const now = Date.now()
-      if (now - last < 1000) quickExit()
-      last = now
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [])
 }

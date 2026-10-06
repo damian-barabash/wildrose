@@ -60,7 +60,7 @@ export function Home() {
       </section>
 
       <section className="wrap sec sec--center">
-        <p className="lbl" data-rv>O fundacji Wild Rose</p>
+        <p className="lbl" data-rv>O fundacji Wild Roses</p>
         <p className="statement" data-rv style={i(1)}>
           Pomagamy <em>wyjść z przemocy</em>, odzyskać głos i <em>wrócić</em> do samodzielnego życia
         </p>

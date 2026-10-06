@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import { abuseLines } from '../content/site'
+import { ROSE_HEART, ROSE_PETALS } from '../lib/rose'
 
 // Tło: ledwo widoczna łodyga dzikiej róży, która rośnie razem z przewijaniem strony.
 // W odstępach między sekcjami przebija zdania, które padają w domach z przemocą —
-// po przebiciu zdanie blednie, a na jego końcu zakwita kwiat.
+// po przebiciu zdanie blednie, a na jego końcu zakwita róża.
 // Warstwa jest czysto dekoracyjna (aria-hidden) i leży pod treścią.
 
 const NS = 'http://www.w3.org/2000/svg'
-const HEART = 'M50 46C43.5 41.5 36 33 37.6 23.2C38.9 15.6 46.6 13.6 50 20.6C53.4 13.6 61.1 15.6 62.4 23.2C64 33 56.5 41.5 50 46Z'
 const LEAF = 'M0 0C5 -6.5 14 -7 21 0C14 7 5 6.5 0 0Z'
 const THORN = 'M-2.6 0L0 -6.5L2.6 0Z'
 
@@ -115,7 +115,7 @@ export function Vines() {
         t.textContent = `„${abuseLines[n % abuseLines.length]}”`
         const b = (t as SVGTextElement).getBBox()
         boxes.push({ x0: b.x - 14, x1: b.x + b.width + 14, y: g.y })
-        // kwiat zakwita tam, gdzie łodyga wychodzi ze zdania
+        // róża zakwita tam, gdzie łodyga wychodzi ze zdania
         const exitRight = xy.findIndex(([, py]) => Math.abs(py - g.y) < 40) >= 0 && xy.find(([, py]) => Math.abs(py - g.y) < 40)![0] < W / 2
         const tx = exitRight ? b.x + b.width + fs * 0.75 : b.x - fs * 0.75
         let best = -1
@@ -129,7 +129,8 @@ export function Vines() {
         const size = fs * 0.92
         const f = el('g', { transform: `translate(${xy[best][0].toFixed(1)} ${xy[best][1].toFixed(1)}) scale(${(size / 100).toFixed(3)}) translate(-50 -50)` }, deco)
         const bloom = el('g', { class: 'vn-bloom' }, f)
-        for (let a = 0; a < 360; a += 72) el('path', { d: HEART, transform: `rotate(${a} 50 50)` }, bloom)
+        for (const [cx, cy, r] of ROSE_PETALS) el('circle', { cx, cy, r }, bloom)
+        el('path', { d: ROSE_HEART, fill: 'none', 'stroke-linecap': 'round' }, bloom)
         marks.push({ len: lens[best], el: bloom }, { len: lens[best], el: t })
       })
 

@@ -2,7 +2,7 @@ import puppeteer from 'puppeteer-core'
 const out = process.argv[2]
 const only = process.argv[3]
 const b = await puppeteer.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true })
-const pages = [['home', '/'], ['pomoc', '/pomoc'], ['wspolpraca', '/wspolpraca'], ['o-fundacji', '/o-fundacji'], ['przejrzystosc', '/przejrzystosc']]
+const pages = [['home', '/'], ['pomoc', '/pomoc'], ['wspolpraca', '/wspolpraca'], ['o-fundacji', '/o-fundacji'], ['przejrzystosc', '/przejrzystosc'], ['kontakt', '/kontakt']]
 for (const [vw, vh, tag, scale] of [[1440, 900, 'd', 0.5], [390, 844, 'm', 1]]) {
   for (const [name, url] of pages) {
     if (only && !only.split(',').includes(name + '-' + tag) && !only.split(',').includes(name)) continue
@@ -12,8 +12,6 @@ for (const [vw, vh, tag, scale] of [[1440, 900, 'd', 0.5], [390, 844, 'm', 1]]) 
     p.on('pageerror', (e) => errs.push(String(e)))
     await p.setViewport({ width: vw, height: vh, deviceScaleFactor: scale, isMobile: tag === 'm', hasTouch: tag === 'm' })
     await p.goto((process.env.SITE || 'http://localhost:4317') + url, { waitUntil: 'networkidle0' })
-    if (process.env.SOS) { await p.screenshot({ path: `${out}/${name}-${tag}-sos.jpg`, type: 'jpeg', quality: 80 }) }
-    await p.evaluate(() => document.querySelector('.sos__enter')?.click())
     await p.evaluate(async () => {
       await document.fonts.ready
       const h = document.documentElement.scrollHeight

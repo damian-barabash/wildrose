@@ -4,7 +4,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const routes = ['pomoc', 'wspolpraca', 'o-fundacji', 'przejrzystosc']
+const routes = ['pomoc', 'wspolpraca', 'o-fundacji', 'przejrzystosc', 'kontakt']
 
 const html = fs.readFileSync('dist/index.html', 'utf8')
 for (const r of routes) {

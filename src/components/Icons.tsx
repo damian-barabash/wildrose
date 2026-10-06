@@ -1,13 +1,13 @@
-const HEART = 'M50 46C43.5 41.5 36 33 37.6 23.2C38.9 15.6 46.6 13.6 50 20.6C53.4 13.6 61.1 15.6 62.4 23.2C64 33 56.5 41.5 50 46Z'
+import { ROSE_CUT, ROSE_HEART, ROSE_PETALS } from '../lib/rose'
 
-export function Flower({ className }: { className?: string }) {
+// Linie między płatkami mają kolor tła: zmienna --k (domyślnie biel).
+export function Rose({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-      <g transform="translate(50 50) scale(1.24) translate(-50 -50)">
-        {[0, 72, 144, 216, 288].map((a) => (
-          <path key={a} transform={`rotate(${a} 50 50)`} d={HEART} />
-        ))}
-      </g>
+    <svg className={className} viewBox="0 0 100 100" fill="currentColor" stroke="var(--k, #fff)" strokeWidth={ROSE_CUT} aria-hidden="true">
+      {ROSE_PETALS.map(([cx, cy, r]) => (
+        <circle key={r} cx={cx} cy={cy} r={r} />
+      ))}
+      <path d={ROSE_HEART} fill="none" strokeLinecap="round" />
     </svg>
   )
 }
