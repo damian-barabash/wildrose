@@ -2,7 +2,8 @@ import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import { newsletter } from '../content/site'
 import { submitForm } from '../lib/forms'
 import { lockScroll } from '../lib/motion'
-import { Arrow, Close, Rose } from './Icons'
+import { Arrow, Close } from './Icons'
+import { Logo } from './Logo'
 
 type State = 'idle' | 'sending' | 'sent' | 'demo' | 'error'
 
@@ -133,7 +134,7 @@ export function NewsletterPopup() {
         <button type="button" className="pop__x" onClick={close} aria-label="Zamknij okno">
           <Close />
         </button>
-        <Rose className="pop__rose" />
+        <Logo variant="mark" className="pop__rose" />
         <h2 className="h2" id="pop-h">{newsletter.title}</h2>
         <p className="nl__txt">{newsletter.text}</p>
         <NewsletterForm source="okno" />

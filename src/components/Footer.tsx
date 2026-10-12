@@ -53,7 +53,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="ft__big" aria-hidden="true">
-        <Logo tag={false} />
+        <Logo variant="word" shade />
       </div>
       <div className="wrap ft__bot">
         <span>© {new Date().getFullYear()} {site.legalName}</span>

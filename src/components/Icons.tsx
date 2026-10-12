@@ -1,17 +1,3 @@
-import { ROSE_CUT, ROSE_HEART, ROSE_PETALS } from '../lib/rose'
-
-// Linie między płatkami mają kolor tła: zmienna --k (domyślnie biel).
-export function Rose({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 100 100" fill="currentColor" stroke="var(--k, #fff)" strokeWidth={ROSE_CUT} aria-hidden="true">
-      {ROSE_PETALS.map(([cx, cy, r]) => (
-        <circle key={r} cx={cx} cy={cy} r={r} />
-      ))}
-      <path d={ROSE_HEART} fill="none" strokeLinecap="round" />
-    </svg>
-  )
-}
-
 export function Arrow({ dir = 'right' }: { dir?: 'right' | 'left' | 'up-right' | 'down' }) {
   const rot = { right: 0, left: 180, 'up-right': -45, down: 90 }[dir]
   return (

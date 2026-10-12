@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build && node scripts/postbuild.mjs",
     "preview": "vite preview",
     "media": "node scripts/media.mjs",
-    "brand": "node brand/build.mjs"
+    "brand": "node brand/build.mjs",
+    "logo": "node brand/logo-trace.mjs"
   },
   "dependencies": {
     "@fontsource-variable/instrument-sans": "^5.3.0",

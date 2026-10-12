@@ -8,13 +8,14 @@ npm run dev        # podgląd lokalny
 npm run build      # dist/ + kopie index.html dla każdej trasy (scripts/postbuild.mjs)
 npm run media      # media-src/*.jpg → public/img/*.webp
 npm run brand      # brand/Wild-Roses-Logo-Propozycje.pdf (prezentacja 10 wariantów logo)
+npm run logo       # logo klienta → wektor (src/lib/logo.ts, favicon, apple-touch-icon)
 ```
 
 ## Co gdzie jest
 
 - `src/content/site.ts` — wszystkie teksty, numery telefonów, dane fundacji i flaga `DRAFT`.
 - `src/styles/site.css` — cały wygląd; kolor przewodni to jedna zmienna `--rose`.
-- `src/components/Logo.tsx` + `public/favicon.svg` — logo testowe, do podmiany po wyborze klienta.
+- `src/components/Logo.tsx` — logo klienta w czterech układach (`full`, `row`, `word`, `mark`); ścieżki w `src/lib/logo.ts`, favicon i `apple-touch-icon.png` generuje `npm run logo` z `brand/klient/wild-roses-logo.png`.
 - `src/components/Newsletter.tsx` — zapis na newsletter: okno po 10 s, strona „Kontakt” i stopka (tabela `newsletter_subscribers`).
 - `src/lib/forms.ts` — wysyłka formularzy. Bez `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` formularze działają w trybie testowym i nic nie wysyłają (strona mówi o tym wprost).
 - `brand/` — generator prezentacji logo (`build.mjs`), rysunki róż (`roses.mjs`), ikony SVG, kroje użyte w wariantach.

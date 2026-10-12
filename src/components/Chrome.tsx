@@ -4,7 +4,7 @@ import { Phone } from './Icons'
 
 export function DraftBar() {
   if (!DRAFT) return null
-  return <p className="draft">Wersja robocza. Teksty, liczby i dane fundacji są przykładowe; logo testowe.</p>
+  return <p className="draft">Wersja robocza. Teksty, liczby i dane fundacji są przykładowe.</p>
 }
 
 // Dolny pasek na telefonie: telefon i formularz zawsze pod kciukiem.

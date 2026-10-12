@@ -1,5 +1,5 @@
 // Róża widziana z góry (viewBox 0 0 100 100): płatki jako koła układane po spirali, na wierzchu zawinięty środek.
-// Ten sam rysunek co wariant „Litera-róża” w brand/roses.mjs.
+// Kwiaty na łodydze w tle (Vines.tsx).
 export const ROSE_PETALS: [number, number, number][] = [
   [30.89, 60.08, 28.89],
   [71.17, 58.42, 26.83],
@@ -12,4 +12,3 @@ export const ROSE_PETALS: [number, number, number][] = [
   [50.96, 52.23, 12.38],
 ]
 export const ROSE_HEART = 'M45.76 54.83A5.2 5.2 0 1 1 55.64 55.35'
-export const ROSE_CUT = 2.6

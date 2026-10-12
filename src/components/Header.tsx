@@ -20,8 +20,8 @@ export function Header() {
   return (
     <header className="hd">
       <div className="wrap hd__in">
-        <Link to="/" className="hd__logo" aria-label="Wild Roses — strona główna">
-          <Logo />
+        <Link to="/" className="hd__logo" aria-label="Fundacja Wild Roses — strona główna">
+          <Logo variant="row" />
         </Link>
         <nav className={`hd__nav ${open ? 'is-open' : ''}`} id="menu" aria-label="Główna nawigacja">
           {nav.map((n) => (

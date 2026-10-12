@@ -37,7 +37,7 @@ export function Home() {
         </p>
         <div className="hero__logo" data-rv style={i(1)}>
           <i />
-          <Logo />
+          <Logo shade />
           <i />
         </div>
         <h1 className="hero__h" data-rv style={i(2)}>{site.tagline}</h1>
