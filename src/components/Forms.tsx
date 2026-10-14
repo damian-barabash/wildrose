@@ -115,7 +115,7 @@ export function HelpForm() {
       <Field label="Czego potrzebujesz?">
         {(id) => (
           <select id={id} name="topic" defaultValue="Rozmowa">
-            {['Rozmowa', 'Bezpieczeństwo — doświadczam przemocy', 'Pomoc prawna', 'Wsparcie psychologiczne', 'Powrót do pracy', 'Coś innego'].map((o) => (
+            {['Rozmowa', 'Bezpieczeństwo — doświadczam przemocy', 'Pomoc prawna', 'Wsparcie psychologiczne', 'Stres, emocje, równowaga psychiczna', 'Wiedza finansowa i ekonomiczna', 'Powrót do pracy', 'Marka osobista i rozwój', 'Coś innego'].map((o) => (
               <option key={o}>{o}</option>
             ))}
           </select>

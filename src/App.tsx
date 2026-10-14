@@ -13,11 +13,20 @@ import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import { Support } from './pages/Support'
 import { Transparency } from './pages/Transparency'
+import seo from './content/seo.json'
+
+type Meta = { title: string; description: string }
 
 export function App() {
   const { pathname, hash } = useLocation()
   useSmoothScroll()
   useReveal(pathname)
+
+  useEffect(() => {
+    const m = (seo as unknown as Record<string, Meta>)[pathname] ?? { title: 'Nie ma takiej strony — Fundacja Wild Roses', description: seo['/'].description }
+    document.title = m.title
+    document.querySelector('meta[name="description"]')?.setAttribute('content', m.description)
+  }, [pathname])
 
   useEffect(() => {
     if (hash) requestAnimationFrame(() => scrollToId(hash.slice(1)))

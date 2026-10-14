@@ -7,12 +7,12 @@ const todo = 'do uzupełnienia'
 export function Contact() {
   return (
     <>
-      <PageHead kicker="Kontakt" title="Napisz albo zadzwoń" lead="Wybierz drogę, która pasuje do Twojej sprawy. Odpowiadamy w dni robocze." />
+      <PageHead kicker="Kontakt" title="Kontakt z Fundacją Wild Roses" lead="Wybierz drogę, która pasuje do Twojej sprawy. Odpowiadamy w dni robocze." />
 
       <section className="wrap sec sec--tight">
         <ul className="ways">
           <li data-rv>
-            <h2 className="h3">Szukam pomocy</h2>
+            <h2 className="h3">Szukam wsparcia</h2>
             <p>Formularz dla osób, które potrzebują wsparcia. Wystarczy imię i bezpieczny sposób kontaktu.</p>
             <PillLink to="/pomoc#formularz" kind="line">Formularz pomocy</PillLink>
           </li>

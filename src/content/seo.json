@@ -1,0 +1,27 @@
+{
+  "_": "Tytuł i opis każdej strony. Czyta je App.tsx (w przeglądarce) i scripts/postbuild.mjs (wpisuje do HTML każdej trasy — to widzą wyszukiwarki).",
+  "/": {
+    "title": "Fundacja Wild Roses — wsparcie, rozwój i niezależność Kobiet",
+    "description": "Budujemy silną społeczność niezależnych Kobiet. Edukacja, rozwój, wsparcie i uważność: od pomocy w przemocy domowej po wiedzę finansową i markę osobistą."
+  },
+  "/pomoc": {
+    "title": "Wsparcie dla Kobiet doświadczających przemocy — Fundacja Wild Roses",
+    "description": "Bezpłatnie i poufnie: telefony zaufania czynne całą dobę, formularz kontaktu bez nazwiska i plan bezpieczeństwa. Fundacja Wild Roses."
+  },
+  "/o-fundacji": {
+    "title": "O Fundacji Wild Roses — cel, misja i cztery filary",
+    "description": "Celem Fundacji Wild Roses jest silna społeczność niezależnych Kobiet. Poznaj nasze filary: edukację, rozwój, wsparcie i uważność, oraz cele statutowe."
+  },
+  "/wspolpraca": {
+    "title": "Wesprzyj Fundację Wild Roses — darowizna, partnerstwo, wolontariat",
+    "description": "Wesprzyj rozwój i niezależność Kobiet: darowizna, partnerstwo firmowe, warsztaty przeciwdziałania przemocy w pracy, inwestycja społeczna lub wolontariat kompetencyjny."
+  },
+  "/przejrzystosc": {
+    "title": "Finanse i sprawozdania — przejrzystość Fundacji Wild Roses",
+    "description": "Na co Fundacja Wild Roses wydaje darowizny, statut, sprawozdania i dane rejestrowe. Jawne finanse bez drobnego druku."
+  },
+  "/kontakt": {
+    "title": "Kontakt — Fundacja Wild Roses",
+    "description": "Formularz wsparcia, formularz współpracy, dane biura fundacji i newsletter Fundacji Wild Roses."
+  }
+}

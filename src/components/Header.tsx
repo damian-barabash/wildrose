@@ -21,7 +21,7 @@ export function Header() {
     <header className="hd">
       <div className="wrap hd__in">
         <Link to="/" className="hd__logo" aria-label="Fundacja Wild Roses — strona główna">
-          <Logo variant="row" />
+          <Logo variant="row" thick={5} />
         </Link>
         <nav className={`hd__nav ${open ? 'is-open' : ''}`} id="menu" aria-label="Główna nawigacja">
           {nav.map((n) => (
@@ -32,7 +32,7 @@ export function Header() {
         </nav>
         <div className="hd__act">
           <Link to="/pomoc" className="pill pill--rose hd__cta">
-            <span>Potrzebuję pomocy</span>
+            <span>Potrzebuję wsparcia</span>
             <i><Arrow dir="up-right" /></i>
           </Link>
           <button type="button" className="hd__burger" aria-expanded={open} aria-controls="menu" onClick={() => setOpen((o) => !o)}>

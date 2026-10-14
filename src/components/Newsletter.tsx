@@ -134,7 +134,7 @@ export function NewsletterPopup() {
         <button type="button" className="pop__x" onClick={close} aria-label="Zamknij okno">
           <Close />
         </button>
-        <Logo variant="mark" className="pop__rose" />
+        <Logo variant="mark" className="pop__rose" thick={7} />
         <h2 className="h2" id="pop-h">{newsletter.title}</h2>
         <p className="nl__txt">{newsletter.text}</p>
         <NewsletterForm source="okno" />

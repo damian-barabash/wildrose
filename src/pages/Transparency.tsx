@@ -6,12 +6,12 @@ import { Registry } from './About'
 export function Transparency() {
   return (
     <>
-      <PageHead kicker="Przejrzystość" title="Każda złotówka ma adres" lead="Zaufanie buduje się faktami. Tu znajdziesz nasze finanse, dokumenty i zasady." />
+      <PageHead kicker="Przejrzystość" title="Finanse i dokumenty fundacji: każda złotówka ma adres" lead="Zaufanie buduje się faktami. Tu znajdziesz nasze finanse, dokumenty i zasady." />
 
       <section className="wrap sec sec--tight">
         <div className="open">
           <div className="open__txt">
-            <h2 className="h2" data-rv>Na co wydajemy pieniądze</h2>
+            <h2 className="h2" data-rv>Na co wydajemy darowizny</h2>
             <p data-rv>Większość środków trafia bezpośrednio do osób, którym pomagamy. Koszty administracji trzymamy poniżej 10%.</p>
           </div>
           <ul className="bars" aria-label="Podział wydatków — dane przykładowe">
@@ -29,7 +29,7 @@ export function Transparency() {
 
       <section className="wrap sec">
         <div className="sec__head sec__head--line">
-          <h2 className="h2" data-rv>Dokumenty</h2>
+          <h2 className="h2" data-rv>Statut i sprawozdania</h2>
         </div>
         <ul className="docs">
           {documents.map((d) => (
@@ -43,7 +43,7 @@ export function Transparency() {
 
       <section className="wrap sec">
         <div className="sec__head sec__head--line">
-          <h2 className="h2" data-rv>Nasze zasady</h2>
+          <h2 className="h2" data-rv>Zasady przejrzystości</h2>
         </div>
         <ul className="ways">
           {principles.map((p, n) => (
@@ -57,7 +57,7 @@ export function Transparency() {
 
       <section className="wrap sec">
         <div className="sec__head sec__head--line">
-          <h2 className="h2" data-rv>Dane rejestrowe</h2>
+          <h2 className="h2" data-rv>KRS, NIP i dane rejestrowe</h2>
         </div>
         <Registry />
         <div className="sec__cta" data-rv><PillLink to="/wspolpraca">Chcę wesprzeć fundację</PillLink></div>

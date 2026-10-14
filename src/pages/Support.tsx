@@ -7,9 +7,9 @@ export function Support() {
   return (
     <>
       <PageHead
-        kicker="Dla darczyńców, firm i inwestorów"
-        title="Twoje wsparcie zamienia się w czyjś nowy początek"
-        lead="Możesz pomóc pieniędzmi, miejscem pracy albo wiedzą. Pokażemy dokładnie, co z tym zrobiliśmy."
+        kicker="Wesprzyj nas"
+        title="Wesprzyj rozwój i niezależność Kobiet"
+        lead="Możesz pomóc pieniędzmi, partnerstwem, warsztatem w swojej firmie albo wiedzą. Pokażemy dokładnie, co z tym zrobiłyśmy."
       />
 
       <section className="wrap sec sec--tight">
@@ -27,7 +27,7 @@ export function Support() {
         <div className="open">
           <div className="open__txt">
             <p className="lbl" data-rv>Co dostajesz w zamian</p>
-            <h2 className="h2" data-rv>Jasny cel, budżet i raport</h2>
+            <h2 className="h2" data-rv>Jasny cel, budżet i raport z efektów</h2>
             <p data-rv>Przed startem ustalamy, co finansujesz. Po zakończeniu dostajesz raport: ile osób skorzystało, co się udało, a co nie. Dane osób, którym pomagamy, zawsze pozostają poufne.</p>
             <div data-rv><PillLink to="/przejrzystosc" kind="line">Zasady przejrzystości</PillLink></div>
           </div>
@@ -38,7 +38,7 @@ export function Support() {
       <section className="wrap sec" id="formularz">
         <div className="split">
           <div className="split__side">
-            <h2 className="h2" data-rv>Porozmawiajmy</h2>
+            <h2 className="h2" data-rv>Porozmawiajmy o współpracy</h2>
             <p data-rv>Wypełnij formularz, a odezwiemy się, żeby ustalić szczegóły.</p>
             <dl className="facts" data-rv>
               <dt>Numer konta do darowizn</dt>

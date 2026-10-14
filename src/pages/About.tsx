@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import { Img, PageHead, PillLink } from '../components/Bits'
-import { principles, site, statuteGoals } from '../content/site'
+import { missionAreas, principles, site, statuteGoals } from '../content/site'
+import { Audiences, Pillars } from './Home'
 
 export function Registry() {
   const v = (s: string) => s || 'do uzupełnienia'
@@ -27,18 +28,38 @@ export function Registry() {
 export function About() {
   return (
     <>
-      <PageHead kicker="O fundacji" title="Delikatna i silna jednocześnie" lead="Dzika róża rośnie sama, w trudnych miejscach, i potrafi się obronić. Tak widzimy osoby, którym pomagamy." />
+      <PageHead kicker="O fundacji" title="Fundacja Wild Roses: społeczność niezależnych Kobiet" lead={site.goal} />
 
       <section className="wrap sec sec--tight">
         <div className="open">
           <div data-rv><Img name="mother-child" /></div>
           <div className="open__txt">
             <p className="lbl" data-rv>Misja</p>
-            <h2 className="h2" data-rv>Od bezpieczeństwa do niezależności</h2>
-            <p data-rv>Wyjście z przemocy to dopiero początek. Żeby nie trzeba było wracać, potrzebne są jeszcze praca, własne pieniądze, znajomość swoich praw i ludzie obok.</p>
-            <p data-rv>Dlatego łączymy pomoc w kryzysie z powrotem na rynek pracy, wspieraniem przedsiębiorczości kobiet i pilnowaniem, żeby prawo działało także dla osób wykluczonych.</p>
+            <h2 className="h2" data-rv>Zauważyć siebie i zbudować własną siłę</h2>
+            <p data-rv>{site.mission} Wierzymy, że bezpieczeństwo psychiczne i finansowe można zbudować na własnej sile — z wiedzą, wsparciem i ludźmi obok.</p>
+            <p data-rv>Wspieramy Kobiety w zakresie:</p>
+            <ul className="ticks" data-rv>
+              {missionAreas.map((a) => (
+                <li key={a}>{a}</li>
+              ))}
+            </ul>
           </div>
         </div>
+      </section>
+
+      <section className="wrap sec" id="filary">
+        <div className="sec__head sec__head--line">
+          <h2 className="h2" data-rv>Cztery filary naszej pracy</h2>
+          <p className="sec__note" data-rv>Edukacja, rozwój, wsparcie i uważność — tak realizujemy cel fundacji.</p>
+        </div>
+        <Pillars />
+      </section>
+
+      <section className="wrap sec">
+        <div className="sec__head">
+          <h2 className="h2" data-rv>Do kogo kierujemy nasze działania</h2>
+        </div>
+        <Audiences />
       </section>
 
       <section className="wrap sec">
@@ -57,7 +78,7 @@ export function About() {
 
       <section className="wrap sec" id="cele">
         <div className="sec__head sec__head--line">
-          <h2 className="h2" data-rv>Cele statutowe</h2>
+          <h2 className="h2" data-rv>Cele statutowe fundacji</h2>
           <p className="sec__note" data-rv>Pełna lista z § 2 statutu fundacji, ułożona w pięć obszarów.</p>
         </div>
         <div className="faq">
@@ -76,7 +97,7 @@ export function About() {
 
       <section className="wrap sec">
         <div className="sec__head sec__head--line">
-          <h2 className="h2" data-rv>Dane fundacji</h2>
+          <h2 className="h2" data-rv>Dane Fundacji Wild Roses</h2>
         </div>
         <Registry />
         <div className="sec__cta" data-rv><PillLink to="/przejrzystosc" kind="line">Finanse i dokumenty</PillLink></div>

@@ -1,12 +1,22 @@
-/* Wild Roses — biel, dużo powietrza i jeden kolor. Zmiana odcienia = zmiana --rose (tinty liczą się same). */
+/* Wild Roses — biel, dużo powietrza i paleta klienta (5 odcieni, od najciemniejszego):
+   #9D0776 --rose    tekst, przyciski, numery (kontrast na bieli ≈ 9:1)
+   #BB018A --rose-2  hover, drugi plan (≈ 6,6:1)
+   #E7199D --rose-3  akcenty w dużych napisach, paski (≈ 4,2:1 — tylko duży tekst i grafika)
+   #FE5CB0 --rose-4  dekor: linie, łodyga w tle
+   #FE87C3 --rose-5  dekor i jasne tła (tinty) */
 :root {
-  --rose: #b4033d;
+  --rose: #9d0776;
+  --rose-2: #bb018a;
+  --rose-3: #e7199d;
+  --rose-4: #fe5cb0;
+  --rose-5: #fe87c3;
+  --grad: linear-gradient(120deg, var(--rose) 0%, var(--rose-2) 55%, var(--rose-3) 100%);
   --ink: #1f1a1d;
   --muted: #6b5f66;
   --white: #fff;
-  --tint: color-mix(in srgb, var(--rose) 7%, #fff);
-  --tint-2: color-mix(in srgb, var(--rose) 16%, #fff);
-  --line: color-mix(in srgb, var(--rose) 10%, #e6e3e4);
+  --tint: color-mix(in srgb, var(--rose-5) 13%, #fff);
+  --tint-2: color-mix(in srgb, var(--rose-5) 32%, #fff);
+  --line: color-mix(in srgb, var(--rose-5) 18%, #e6e3e4);
   --r: 14px;
   --r-lg: 22px;
   --pad: clamp(16px, 4vw, 44px);
@@ -36,6 +46,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- typografia ---------- */
 .lbl { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; color: var(--muted); }
+.lbl--rose { color: var(--rose-2); }
 .h1, .h2, .h3, .statement, .hero__h { font-weight: 500; text-transform: uppercase; letter-spacing: -0.035em; line-height: 1; text-wrap: balance; }
 .h1 { font-size: clamp(2.3rem, 6.2vw, 5.2rem); }
 .h2 { font-size: clamp(1.7rem, 3.5vw, 2.9rem); }
@@ -48,7 +59,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .pill:not(:has(> i)) { padding-inline: 22px; justify-content: center; }
 .pill:hover > i { transform: rotate(45deg); }
 .pill--rose { background: var(--rose); color: #fff; }
-.pill--rose:hover { background: color-mix(in srgb, var(--rose) 86%, #000); }
+.pill--rose:hover { background: var(--rose-2); }
 .pill--line { border-color: var(--ink); }
 .pill--line:hover { background: var(--ink); color: #fff; }
 .pill--white { background: #fff; color: var(--rose); }
@@ -75,7 +86,7 @@ a:hover > .img img { transform: scale(1.035); }
 @keyframes page-in { from { opacity: 0; } }
 
 /* ---------- tło: łodyga dzikiej róży ---------- */
-.vines { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; color: var(--rose); }
+.vines { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; color: var(--rose-2); }
 .vines svg { display: block; }
 .vn-stem { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; opacity: 0.3; }
 .vn-leaf, .vn-thorn { fill: currentColor; opacity: 0; transform: scale(0.2); transform-box: fill-box; transform-origin: 0 50%; transition: opacity 0.9s var(--ease), transform 1.1s var(--ease); }
@@ -89,7 +100,7 @@ a:hover > .img img { transform: scale(1.035); }
 
 /* ---------- okno zapisu na newsletter ---------- */
 html.is-locked { overflow: hidden; }
-.pop { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 16px; overflow-y: auto; background: color-mix(in srgb, var(--rose) 16%, rgb(255 255 255 / 0.9)); animation: page-in 0.35s ease both; }
+.pop { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 16px; overflow-y: auto; background: color-mix(in srgb, var(--rose-5) 22%, rgb(255 255 255 / 0.9)); animation: page-in 0.35s ease both; }
 .pop__card { position: relative; display: grid; gap: 22px; width: min(100%, 520px); padding: clamp(26px, 5vw, 44px); border-radius: var(--r-lg); background: #fff; box-shadow: 0 30px 80px -40px color-mix(in srgb, var(--rose) 60%, transparent); animation: pop-in 0.5s var(--ease) both; }
 .pop__card:focus { outline: none; }
 @keyframes pop-in { from { opacity: 0; transform: translateY(14px) scale(0.985); } }
@@ -173,12 +184,18 @@ html.is-locked { overflow: hidden; }
 .hero__urgent { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 28px; font-size: 0.84rem; color: var(--muted); }
 .hero__urgent a { color: var(--rose); font-weight: 600; text-decoration: none; white-space: nowrap; }
 .hero__urgent a:hover { text-decoration: underline; }
-/* linie stoją na wysokości napisu: jego środek leży 0,57 szerokości logo od góry */
-.hero__logo { --lw: clamp(250px, 46vw, 620px); display: grid; grid-template-columns: 1fr var(--lw) 1fr; align-items: start; gap: clamp(14px, 2.4vw, 36px); margin-top: clamp(36px, 5vw, 72px); }
-.hero__logo > i { height: 1px; margin-top: calc(var(--lw) * 0.57); background: var(--rose); opacity: 0.4; }
+/* linie stoją na wysokości napisu: --ly (ustawiane z Logo.tsx) = środek napisu od góry, w szerokościach logo */
+.hero__logo { --lw: clamp(236px, 38vw, 500px); display: grid; grid-template-columns: 1fr var(--lw) 1fr; align-items: start; gap: clamp(14px, 2.4vw, 36px); margin-top: clamp(36px, 5vw, 72px); }
+.hero__logo > i { height: 1px; margin-top: calc(var(--lw) * var(--ly)); background: var(--rose-4); opacity: 0.55; }
 .hero__logo .logo { width: 100%; }
-.hero__h { max-width: 22ch; margin: clamp(26px, 4vw, 52px) auto 0; font-size: clamp(1.25rem, 2.3vw, 1.9rem); letter-spacing: -0.025em; line-height: 1.08; }
+.hero__h { max-width: 30ch; margin: clamp(26px, 4vw, 52px) auto 0; font-size: clamp(1.25rem, 2.3vw, 1.9rem); letter-spacing: -0.025em; line-height: 1.08; }
 .hero__sub { margin-top: 14px; color: var(--muted); }
+/* cztery hasła fundacji pod mottem */
+.hero__pillars { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 0; margin-top: clamp(22px, 3vw, 34px); }
+.hero__pillars li { display: flex; align-items: center; }
+.hero__pillars li + li::before { content: ''; width: 5px; height: 5px; margin-inline: clamp(12px, 2vw, 22px); border-radius: 50%; background: var(--rose-4); }
+.hero__pillars a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: var(--rose); transition: color 0.3s; }
+.hero__pillars a:hover { color: var(--rose-3); }
 .hero__tiles { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-top: clamp(56px, 9vw, 130px); text-align: center; }
 .hero__tiles > div { display: grid; }
 
@@ -211,14 +228,28 @@ html.is-locked { overflow: hidden; }
 .tel__txt b { color: var(--ink); font-weight: 500; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.03em; }
 .tel__go { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; border: 1px solid var(--ink); transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
 .tel:hover { background: var(--tint); padding-inline: 18px; }
-.tel:hover .tel__go { background: var(--rose); border-color: var(--rose); color: #fff; }
+.tel:hover .tel__go { background: var(--rose-2); border-color: var(--rose-2); color: #fff; }
 
 /* ---------- deklaracja + trzy kafle ---------- */
 .statement { max-width: 20ch; margin: 18px auto 0; font-size: clamp(1.95rem, 5.3vw, 4.5rem); }
-.statement em { font-style: normal; color: var(--rose); }
+.statement em { font-style: normal; color: var(--rose-3); }
 .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: clamp(48px, 7vw, 100px); }
 .trio__it { position: relative; display: block; }
 .trio__it .pill { position: absolute; top: 12px; right: 12px; min-width: min(190px, 72%); }
+
+/* ---------- filary ---------- */
+.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+.pillars li { display: grid; align-content: start; gap: 12px; padding: clamp(22px, 2.4vw, 32px); border-radius: var(--r); background: var(--tint); }
+.pillars__n { font-size: 0.78rem; font-weight: 500; color: var(--rose-2); font-variant-numeric: tabular-nums; }
+.pillars__name { margin-top: clamp(20px, 3.4vw, 56px); padding-top: 0.12em; font-size: clamp(1.6rem, 2.4vw, 2.2rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.12; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pillars__title { font-weight: 500; }
+.pillars li p:last-child { color: var(--muted); font-size: 0.98rem; }
+
+/* ---------- dla kogo ---------- */
+.aud { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 var(--gap); border-top: 1px solid var(--line); }
+.aud li { display: grid; gap: 8px; padding: clamp(20px, 2.4vw, 30px) 0; border-bottom: 1px solid var(--line); }
+.aud .h3 { color: var(--rose); }
+.aud p { color: var(--muted); max-width: 48ch; }
 
 /* ---------- programy ---------- */
 .progs { display: grid; gap: var(--gap); }
@@ -238,15 +269,19 @@ html.is-locked { overflow: hidden; }
 .open { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 90px); align-items: center; }
 .open__txt { display: grid; gap: 18px; justify-items: start; max-width: 50ch; }
 .open__txt > p:not(.lbl) { color: var(--muted); }
+.ticks { display: grid; gap: 8px; color: var(--muted); }
+.ticks li { position: relative; padding-left: 22px; }
+.ticks li::before { content: ''; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--rose-4); }
+.ticks li::first-letter { text-transform: uppercase; }
 .bars { display: grid; gap: 22px; }
 .bars li:not(.bars__note) { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: baseline; }
 .bars b { font-size: 1.5rem; font-weight: 500; letter-spacing: -0.03em; color: var(--rose); }
-.bars i { grid-column: 1 / -1; height: 6px; border-radius: 6px; background: linear-gradient(var(--rose), var(--rose)) left / 0% 100% no-repeat var(--tint-2); transition: background-size 1.4s var(--ease) 0.25s; }
+.bars i { grid-column: 1 / -1; height: 6px; border-radius: 6px; background: linear-gradient(90deg, var(--rose), var(--rose-3)) left / 0% 100% no-repeat var(--tint-2); transition: background-size 1.4s var(--ease) 0.25s; }
 .bars .in i, html:not(.js) .bars i { background-size: var(--w) 100%; }
 .bars__note { font-size: 0.82rem; color: var(--muted); }
 
 /* ---------- wezwanie do wsparcia ---------- */
-.cta { display: grid; justify-items: center; gap: 22px; padding: clamp(48px, 9vw, 130px) var(--pad); border-radius: var(--r-lg); background: var(--rose); color: #fff; text-align: center; }
+.cta { display: grid; justify-items: center; gap: 22px; padding: clamp(48px, 9vw, 130px) var(--pad); border-radius: var(--r-lg); background: var(--grad); color: #fff; text-align: center; }
 .cta .lbl { color: #fff; opacity: 0.8; }
 .cta .h1 { max-width: 14ch; }
 .cta p:not(.lbl) { max-width: 46ch; opacity: 0.9; }
@@ -339,7 +374,7 @@ html.is-locked { overflow: hidden; }
   .sec__head, .open, .safe, .split, .prog, .form__row, .ft__nl { grid-template-columns: 1fr; }
   .split__side { position: static; }
   .split__side .img { display: none; }
-  .ways { grid-template-columns: 1fr 1fr; }
+  .ways, .pillars { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr; }
   .steps__n { margin-bottom: 22px; }
   .facts--grid { grid-template-columns: 1fr 1fr; }
@@ -350,7 +385,7 @@ html.is-locked { overflow: hidden; }
 }
 @media (max-width: 640px) {
   body { font-size: 1rem; }
-  .hero__tiles, .trio, .ways { grid-template-columns: 1fr; }
+  .hero__tiles, .trio, .ways, .pillars, .aud { grid-template-columns: 1fr; }
   .ways li { min-height: 0; }
   .msg { min-height: 380px; }
   .tel { grid-template-columns: 1fr auto; }
@@ -383,6 +418,9 @@ html.is-locked { overflow: hidden; }
   .hero__logo { margin-top: 76px; }
   .hero__h { margin-top: 40px; font-size: 1.32rem; }
   .hero__sub { margin-top: 20px; }
+  .hero__pillars { flex-wrap: nowrap; }
+  .hero__pillars a { font-size: 0.7rem; letter-spacing: 0.08em; }
+  .hero__pillars li + li::before { width: 4px; height: 4px; margin-inline: 8px; }
   .hero__tiles { margin-top: 76px; gap: 18px; }
   .msg { min-height: 440px; padding: 36px 24px; gap: 26px; }
   .msg__body { gap: 24px; }
@@ -407,7 +445,10 @@ html.is-locked { overflow: hidden; }
   .prog__txt .lbl, .prog__txt .rnd { display: none; }
   .prog__txt .h3 { font-size: 1.35rem; }
 
-  .steps { gap: 18px; }
+  .steps, .pillars { gap: 18px; }
+  .pillars li { padding: 30px 26px 34px; gap: 14px; }
+  .pillars__name { margin-top: 22px; font-size: 1.9rem; }
+  .aud li { padding: 26px 0; }
   .steps li { padding: 30px 26px 34px; gap: 14px; }
   .steps__n { margin-bottom: 34px; }
   .open { gap: 56px; }
